@@ -10,7 +10,7 @@ elem_search = driver.find_element_by_xpath(
 
 elem_search.send_keys("XPEV")
 elem_search.send_keys(Keys.RETURN)
-print("hello")
+
 
 # driver.get("https://finviz.com/login.ashx")
 # elem_id = driver.find_element_by_name("email")
