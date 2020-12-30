@@ -5,7 +5,7 @@ GSA (GunGoo's Stock Analysis)
 - Anaconda Environment: GSA
 - Git branch: duke
 
-## Desired Functionalities
+## Brainstorming Section
 
 - Web - Dashboard - HOT stocks
   - giving alert when there is a positive news of a stock on my watchlist
@@ -17,7 +17,10 @@ GSA (GunGoo's Stock Analysis)
 
 - Positivitiy and negativity rate impact on stock price learn from the historical data
 - For Tesla, Gary Black, Elon Musk, etc Twitter tweets.
+
   - Show how ARK is trading on Tesla from LucidBetaTracker.
+
+- Daily/last 3 month volume rank -> quant analysis
 
 ### 12/27/2020 - News Scrapping
 
