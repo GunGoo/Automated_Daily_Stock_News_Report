@@ -4,12 +4,12 @@ import time
 
 
 driver = webdriver.Chrome()
-driver.get("https://finviz.com")
+driver.get("https://seekingalpha.com/symbol/TSLA/income-statement")
 elem_search = driver.find_element_by_xpath(
-    "/html/body/table[1]/tbody/tr[1]/td/table/tbody/tr/td[1]/table/tbody/tr[2]/td/div/form/input")
-
-elem_search.send_keys("XPEV")
-elem_search.send_keys(Keys.RETURN)
+    "/html/body/div[3]/div[1]/div/div/div/div/div[2]/div/div[2]/section/div/div[1]/div[1]")
+print(elem_search)
+# elem_search.send_keys("XPEV")
+# elem_search.send_keys(Keys.RETURN)
 
 
 # driver.get("https://finviz.com/login.ashx")

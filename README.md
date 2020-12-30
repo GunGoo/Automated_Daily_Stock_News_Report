@@ -52,9 +52,15 @@ GSA (GunGoo's Stock Analysis)
        xattr -d com.apple.quarantine chromedriver
        ```
 
-2. After trying Selenium, I figured out that it is not what I wanted. 12/28/2020 Update
+## 12/28/2020 Update
 
+- After trying Selenium, I figured out that it is not what I wanted. 1
 - add, remove button for watchlist
 - scrap 5 latest news for each stocks and show positive or negative
 - do Quant Analysis that I learn from the book
 - figure out how to scrap parameters for Quanting
+
+## 12/30/2020 Update
+
+- Tried using Beautiful soup but the news site (SeekingAlpha) blocks me: blocking bot usage
+- probably trying Selenium again to get the quant table.
