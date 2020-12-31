@@ -64,3 +64,7 @@ GSA (GunGoo's Stock Analysis)
 
 - Tried using Beautiful soup but the news site (SeekingAlpha) blocks me: blocking bot usage
 - probably trying Selenium again to get the quant table.
+
+## 12/31/2020 Update
+
+- Find a way to scrap table from "https://www.sec.gov/edgar/searchedgar/companysearch.html"
