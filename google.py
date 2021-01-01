@@ -1,13 +1,40 @@
 from selenium import webdriver
+from selenium.common.exceptions import TimeoutException
+from selenium.webdriver.support.ui import WebDriverWait
+from selenium.webdriver.support import expected_conditions as EC
+from selenium.webdriver.common.by import By
 from selenium.webdriver.common.keys import Keys
 import time
 
 
 driver = webdriver.Chrome()
-driver.get("https://seekingalpha.com/symbol/TSLA/income-statement")
-elem_search = driver.find_element_by_xpath(
-    "/html/body/div[3]/div[1]/div/div/div/div/div[2]/div/div[2]/section/div/div[1]/div[1]")
-print(elem_search)
+driver.get("https://www.sec.gov/edgar/searchedgar/companysearch.html")
+timeout = 5
+search_box = "/html/body/div[2]/div/div/div/section/div[3]/div[2]/div[2]/div[3]/div/form/input[1]"
+try:
+    element_present = EC.presence_of_element_located(
+        (By.XPATH, search_box))
+    WebDriverWait(driver, timeout).until(element_present)
+except TimeoutException:
+    print("Timed out waiting for page to load")
+
+
+elem_search = driver.find_element_by_xpath(search_box)
+elem_search.send_keys("APPLE")
+time.sleep(3)
+elem_search.send_keys(Keys.RETURN)
+
+finan_stat = "/html/body/div[5]/table/tbody/tr[2]/td[1]/div/ul/li[4]/a"
+
+try:
+    element_present = EC.presence_of_element_located(By.XPATH, finan_stat)
+    WebDriverWait(driver, timeout).until(element_present)
+except TimeoutException:
+    print("Timed out waiting for page to load")
+
+financial_statement = driver.find_element_by_xpath(finan_stat)
+
+
 # elem_search.send_keys("XPEV")
 # elem_search.send_keys(Keys.RETURN)
 

@@ -68,3 +68,4 @@ GSA (GunGoo's Stock Analysis)
 ## 12/31/2020 Update
 
 - Find a way to scrap table from "https://www.sec.gov/edgar/searchedgar/companysearch.html"
+- 20:40 -> working with Selenium to scrap data. this might work!!
