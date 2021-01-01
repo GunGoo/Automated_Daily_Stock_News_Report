@@ -70,3 +70,5 @@ GSA (GunGoo's Stock Analysis)
 - Find a way to scrap table from "https://www.sec.gov/edgar/searchedgar/companysearch.html"
 - 20:40 -> working with Selenium to scrap data. this might work!!
 - Repo name change to "Quant-Automation"
+
+## 01/01/20211 Update
