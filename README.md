@@ -91,3 +91,6 @@ GSA (GunGoo's Stock Analysis)
   - scrap each sectors' stocks and report positive stocks via email
   - Adding features
     - showing stocks performance on the positive news. Next day
+  - for the sentiment analysis, I can use dataset on kaggle to train and save model
+  - Automatically starts computer by configuring BIOS and run scheduled task everyday
+  - Can have 2 seperate emails; 1 for my portfolio, 1 for in general
