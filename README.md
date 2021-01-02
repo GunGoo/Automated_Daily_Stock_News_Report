@@ -71,4 +71,23 @@ GSA (GunGoo's Stock Analysis)
 - 20:40 -> working with Selenium to scrap data. this might work!!
 - Repo name change to "Quant-Automation"
 
-## 01/01/20211 Update
+## 01/01/2021 Update
+
+- Good to create a github cheatsheet for myself
+  - In case I changed the name of the repository, I need to switch git remote location in terminal.
+    - git remote set-url origin (NEW_URL)
+- Project Idea: scrapping articles issued after prev-day close and before today's market open.
+
+  - Reporting list of companies that had positive news
+    - with title of the related articles via email
+
+- Sentiment Analysis
+
+  - US market TECH articles today, count how many positive news and negative news
+  - compare with QQQ
+
+- **Seeking Alpha web Scrapping - Sector News**
+  - QQQ needs to be presented to see market trend
+  - scrap each sectors' stocks and report positive stocks via email
+  - Adding features
+    - showing stocks performance on the positive news. Next day
