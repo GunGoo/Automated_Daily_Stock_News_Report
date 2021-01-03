@@ -1,5 +1,6 @@
-#Automated Daily Stock News Report - v0.1
-##Subscription is currently not available
+# Automated Daily Stock News Report - v0.1
+
+## Subscription is currently not available
 
 - This intuitive daily morning service is to provide users to have quick insights on news published after the yesterday market close and today market open.
 - These news are highly likely to have either positive or negative influence on the today's market trend.
