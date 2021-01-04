@@ -5,7 +5,7 @@ from string import Template
 from email.mime.multipart import MIMEMultipart
 from email.mime.text import MIMEText
 
-import config
+from database import config
 import daily_report
 
 MY_ADDRESS = config.email_address
@@ -43,8 +43,8 @@ def read_template(filename):
 
 
 def main():
-    names, emails = get_contacts("contacts.txt")  # read contacts
-    # message_template = read_template("message.txt")
+    names, emails = get_contacts("./database/contacts.txt")  # read contacts
+    # message_template = read_template("./database/message.txt")
 
     # set up the SMTP server
     s = smtplib.SMTP(host="localhost", port=1025)
