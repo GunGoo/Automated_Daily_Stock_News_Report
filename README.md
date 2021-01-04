@@ -1,6 +1,6 @@
 # Automated Daily Stock News Report - v0.1
 
-## Subscription is currently not available
+## Click to Subscribe: https://forms.gle/euLMzrSgBj3Enrah7
 
 - This intuitive daily morning service is to provide users to have quick insights on news published after the yesterday market close and before today market open.
 - These news are highly likely to have either positive or negative influence on the today's market trend.
@@ -19,3 +19,9 @@
 ## Features Added
 
 - daily news report without sentiment analysis
+
+## Features should be Added
+
+- need to automate google form
+  https://pbpython.com/pandas-google-forms-part1.html
+- Think about monday report (handling weekends)

@@ -121,3 +121,5 @@
   - Figure out how to send email through python daily.
     - window scheduler
     - Bios auto on/off
+  - Having trouble with google SMTP server.
+    - getting connection refuse

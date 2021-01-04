@@ -1,9 +1,19 @@
-import smtplib
+import smtplib, ssl
 import pandas as pd
 from string import Template
 
 from email.mime.multipart import MIMEMultipart
 from email.mime.text import MIMEText
+
+import config
+import daily_report
+
+MY_ADDRESS = config.email_address
+PASSWORD = config.password
+
+# for ticker, title in daily_report.daily_report().items():
+#     print(ticker, title)
+# print(MY_ADDRESS, PASSWORD)
 
 
 def get_contacts(filename):
@@ -14,10 +24,11 @@ def get_contacts(filename):
 
     names = []
     emails = []
-    with open(filename, mode="r", encoding="utf-8") as contacts_file:
-        for a_contact in contacts_file:
-            names.append(a_contact.split()[0])
-            emails.append(a_contact.split()[1])
+    contact_list = open(filename, mode="r", encoding="utf-8")
+    for contact in contact_list:
+        name, email = contact.split(",")[0], contact.split(",")[1]
+        names.append(name)
+        emails.append(email)
     return names, emails
 
 
@@ -26,18 +37,17 @@ def read_template(filename):
     Returns a Template object comprising the contents of the
     file specified by filename.
     """
-
-    with open(filename, "r", encoding="utf-8") as template_file:
-        template_file_content = template_file.read()
+    content_file = open(filename, "r", encoding="utf-8")
+    template_file_content = content_file.read()
     return Template(template_file_content)
 
 
 def main():
-    names, emails = get_contacts("mycontacts.txt")  # read contacts
-    message_template = read_template("message.txt")
+    names, emails = get_contacts("contacts.txt")  # read contacts
+    # message_template = read_template("message.txt")
 
     # set up the SMTP server
-    s = smtplib.SMTP(host="your_host_address_here", port=your_port_here)
+    s = smtplib.SMTP(host="localhost", port=1025)
     s.starttls()
     s.login(MY_ADDRESS, PASSWORD)
 
@@ -54,7 +64,7 @@ def main():
         # setup the parameters of the message
         msg["From"] = MY_ADDRESS
         msg["To"] = email
-        msg["Subject"] = "This is TEST"
+        msg["Subject"] = "Daily Stock News Report by GunGoo :)"
 
         # add in the message body
         msg.attach(MIMEText(message, "plain"))
