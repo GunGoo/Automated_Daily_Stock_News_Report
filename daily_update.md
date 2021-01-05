@@ -128,4 +128,7 @@
 
 - ## **Automated Deaily Stock News Report** Update
   - Sending email works!
-  -
+  - try creating HTML!
+  - there are too many news.. think about how to deal with this
+  - only the positive news??
+  - divide into two reports one for positive, one for negative?
