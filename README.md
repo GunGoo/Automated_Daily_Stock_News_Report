@@ -25,3 +25,4 @@
 - need to automate google form
   https://pbpython.com/pandas-google-forms-part1.html
 - Think about monday report (handling weekends)
+- unsubscribe click in content

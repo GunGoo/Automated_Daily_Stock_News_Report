@@ -123,3 +123,9 @@
     - Bios auto on/off
   - Having trouble with google SMTP server.
     - getting connection refuse
+
+## 01/04/2021
+
+- ## **Automated Deaily Stock News Report** Update
+  - Sending email works!
+  -

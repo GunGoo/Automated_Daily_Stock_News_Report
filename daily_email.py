@@ -6,10 +6,15 @@ from email.mime.multipart import MIMEMultipart
 from email.mime.text import MIMEText
 
 from database import config
+
+import daily_report
+
 import daily_report
 
 MY_ADDRESS = config.email_address
-PASSWORD = config.password
+PASSWORD = config.app_password
+
+from datetime import date
 
 # for ticker, title in daily_report.daily_report().items():
 #     print(ticker, title)
@@ -43,11 +48,17 @@ def read_template(filename):
 
 
 def main():
-    names, emails = get_contacts("./database/contacts.txt")  # read contacts
-    # message_template = read_template("./database/message.txt")
+    names, emails = get_contacts(
+        "/Users/geongupark/opt/anaconda3/envs/GSA/DailyReport/database/contacts.txt"
+    )  # read contacts
+    message_template = read_template(
+        "/Users/geongupark/opt/anaconda3/envs/GSA/DailyReport/database/message.txt"
+    )
+    today = date.today().strftime("%b-%d-%Y")
+    news_entries = daily_report.daily_report()
 
     # set up the SMTP server
-    s = smtplib.SMTP(host="localhost", port=1025)
+    s = smtplib.SMTP(host="smtp.gmail.com", port=587)
     s.starttls()
     s.login(MY_ADDRESS, PASSWORD)
 
@@ -56,7 +67,9 @@ def main():
         msg = MIMEMultipart()  # create a message
 
         # add in the actual person name to the message template
-        message = message_template.substitute(PERSON_NAME=name.title())
+        message = message_template.substitute(
+            PERSON_NAME=name.title(), NEWS_TABLE=news_entries
+        )
 
         # Prints out the message body for our sake
         print(message)
@@ -64,7 +77,7 @@ def main():
         # setup the parameters of the message
         msg["From"] = MY_ADDRESS
         msg["To"] = email
-        msg["Subject"] = "Daily Stock News Report by GunGoo :)"
+        msg["Subject"] = today + ": Daily Stock News Report by GunGoo"
 
         # add in the message body
         msg.attach(MIMEText(message, "plain"))

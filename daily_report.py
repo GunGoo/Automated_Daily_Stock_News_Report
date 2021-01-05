@@ -8,7 +8,6 @@ def daily_report():
     page = requests.get(url)
     soup = BeautifulSoup(page.text, features="html.parser")
     news = soup.find(name="ul", attrs={"class": "mc-list", "id": "mc-list"})
-
     news_entries = collections.defaultdict(list)
     for tag in news.find_all(name="li", attrs={"class": "mc"}):
         try:
@@ -46,4 +45,7 @@ def daily_report():
 
         except:
             pass
-    return news_entries
+    string_news_entries = ""
+    for ticker, title in news_entries.items():
+        string_news_entries += title[0][0] + ": " + ticker + ": " + title[0][1] + "\n"
+    return string_news_entries
