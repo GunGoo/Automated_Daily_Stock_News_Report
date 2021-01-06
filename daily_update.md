@@ -132,3 +132,8 @@
   - there are too many news.. think about how to deal with this
   - only the positive news??
   - divide into two reports one for positive, one for negative?
+
+## 01/05/2021
+
+- Thinking about the Logo
+- working on HTML
