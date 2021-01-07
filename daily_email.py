@@ -16,6 +16,8 @@ PASSWORD = config.app_password
 
 from datetime import date
 
+from lxml import html
+
 # for ticker, title in daily_report.daily_report().items():
 #     print(ticker, title)
 # print(MY_ADDRESS, PASSWORD)
@@ -49,7 +51,7 @@ def read_template(filename):
 
 def main():
     names, emails = get_contacts(
-        "/Users/geongupark/opt/anaconda3/envs/GSA/DailyReport/database/contacts.txt"
+        "/Users/geongupark/opt/anaconda3/envs/GSA/DailyReport/database/test_contact.txt"
     )  # read contacts
     message_template = read_template(
         "/Users/geongupark/opt/anaconda3/envs/GSA/DailyReport/database/message.txt"
@@ -67,12 +69,35 @@ def main():
         msg = MIMEMultipart()  # create a message
 
         # add in the actual person name to the message template
-        message = message_template.substitute(
-            PERSON_NAME=name.title(), NEWS_TABLE=news_entries
-        )
-
+        # message = message_template.substitute(
+        #     PERSON_NAME=name.title(), NEWS_TABLE=news_entries
+        # )
+        with open(
+            r"/Users/geongupark/opt/anaconda3/envs/GSA/DailyReport/database/content/content.html",
+            "r",
+            encoding="utf-8",
+        ) as f:
+            tree = html.fromstring(f.read())
+        html_message = """\
+<html>
+<body style="background-color:gold;margin:0;padding:0;">
+	<div style="	display: flex;align-items: center;justify-content: center;">
+		<div style="flex-basis: 40%;">
+			<img src="/Users/geongupark/opt/anaconda3/envs/GSA/DailyReport/database/content/ggLogo.png" alt="Daily Report" style="max-width: 100%;">
+		</div>
+		<div style="position: absolute;font-size: 20px;padding-left: 20px;">
+			<h1 style="text-align: center;
+			vertical-align: middle;
+			font-size: 34px;
+			line-height: 43px;
+			font-weight: bold;"><script> document.write(new Date().toDateString()); </script></h1> 
+		</div>
+	</div>
+</body>
+</html>
+			"""
         # Prints out the message body for our sake
-        print(message)
+        # print(message)
 
         # setup the parameters of the message
         msg["From"] = MY_ADDRESS
@@ -80,8 +105,8 @@ def main():
         msg["Subject"] = today + ": Daily Stock News Report by GunGoo"
 
         # add in the message body
-        msg.attach(MIMEText(message, "plain"))
-
+        # msg.attach(MIMEText(message, "plain"))
+        msg.attach(MIMEText(html_message, "html"))
         # send the message via the server set up earlier.
         s.send_message(msg)
         del msg
