@@ -48,4 +48,8 @@ def daily_report():
     string_news_entries = ""
     for ticker, title in news_entries.items():
         string_news_entries += title[0][0] + ": " + ticker + ": " + title[0][1] + "\n"
+    print(string_news_entries)
     return string_news_entries
+
+
+daily_report()
