@@ -45,11 +45,16 @@ def daily_report():
 
         except:
             pass
-    string_news_entries = ""
-    for ticker, title in news_entries.items():
-        string_news_entries += title[0][0] + ": " + ticker + ": " + title[0][1] + "\n"
-    print(string_news_entries)
-    return string_news_entries
+    final_news_entries = []
+    for ticker, news_list in news_entries.items():
+        for news in news_list:
+            date, news_heading = news[0], news[1]
+            each_news = [ticker, news_heading]
+            final_news_entries.append(each_news)
+
+    # for news in final_news_entries:
+    #     print(news)
+    return final_news_entries
 
 
-daily_report()
+# daily_report()
