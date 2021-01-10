@@ -22,7 +22,7 @@
 
 ## Features Added
 
-- daily news report without sentiment analysis
+- daily news report with analysis
 
 ## Features should be Added
 
