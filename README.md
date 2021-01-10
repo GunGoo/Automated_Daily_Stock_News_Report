@@ -1,4 +1,5 @@
 # Automated Daily Stock News Report - v1.0
+![example_report](https://user-images.githubusercontent.com/31325556/104128580-6b643200-5336-11eb-8507-4a37e3bd639a.png)
 
 ## The above is the example of the report.
 
