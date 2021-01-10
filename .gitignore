@@ -2,3 +2,4 @@ database/
 *.txt
 *.html
 .DS_Store
+model_artifacts/

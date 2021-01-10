@@ -137,3 +137,13 @@
 
 - Thinking about the Logo
 - working on HTML
+
+## 01/09/2021
+
+- HTML design completed
+- Working on Sentiment Analysis
+  - Using NLP
+  1.  Tokenizing sentences
+  2.  Removing stop words
+  3.  Normalizing words
+  4.  Vectorizing text

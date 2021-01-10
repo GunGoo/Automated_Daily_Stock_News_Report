@@ -5,17 +5,17 @@
 - This intuitive daily morning service is to provide users to have quick insights on news published after the yesterday market close and before today market open.
 - These news are highly likely to have either positive or negative influence on the today's market trend.
 - The daily reports will be sent out to subscribers every morning at 8:45AM EST.
-- In the heading of the email, can add famous stock market quotes!
 
 ## Possible Feature Ideas
 
 - showing stocks' performance on the positive news next day
 - support different languages for the report using google translate
 - support correction of prediction result to improve the sentiment analysis model (User end)
-- support tech forum comments analysis for better insights
-  - ex) what people think
+- support tech forum comments sentiment analysis for better insights
+  - what people think
 - adding portfolio options
   - news for user's portfolio
+- In the heading of the email, can add famous stock market quotes!
 
 ## Features Added
 
