@@ -3,17 +3,7 @@ import random
 import spacy
 from spacy.util import minibatch, compounding
 import pandas as pd
-
-
-TEST_REVIEW = """
-Transcendently beautiful in moments outside the office, it seems almost
-sitcom-like in those scenes. When Toni Colette walks out and ponders
-life silently, it's gorgeous.<br /><br />The movie doesn't seem to decide
-whether it's slapstick, farce, magical realism, or drama, but the best of it
-doesn't matter. (The worst is sort of tedious - like Office Space with less
-humor.)
-"""
-
+import daily_report
 
 eval_list = []
 
@@ -97,9 +87,7 @@ def evaluate_model(tokenizer, textcat, test_data: list) -> dict:
     return {"precision": precision, "recall": recall, "f-score": f_score}
 
 
-def test_model(input_data: str = TEST_REVIEW):
-    #  Load saved trained model
-    loaded_model = spacy.load("model_artifacts")
+def test_model(input_data, loaded_model):
     # Generate prediction
     parsed_text = loaded_model(input_data)
     # Determine prediction to return
@@ -109,10 +97,11 @@ def test_model(input_data: str = TEST_REVIEW):
     else:
         prediction = "Negative"
         score = parsed_text.cats["neg"]
-    print(
-        f"Review text: {input_data}\nPredicted sentiment: {prediction}"
-        f"\tScore: {score}"
-    )
+    # print(
+    #     f"Review text: {input_data}\nPredicted sentiment: {prediction}"
+    #     f"\tScore: {score}"
+    # )
+    return prediction
 
 
 def load_training_data(
@@ -143,11 +132,18 @@ def load_training_data(
     return reviews[:split], reviews[split:]
 
 
-if __name__ == "__main__":
-    train, test = load_training_data(limit=0)
-    print("Training model")
-    train_model(train, test)
-    df = pd.DataFrame(eval_list)
-    pd.DataFrame.plot(df)
-    print("Testing model")
-    test_model()
+def result():
+    # train, test = load_training_data(limit=0)
+    # print("Training model")
+    # train_model(train, test)
+    # df = pd.DataFrame(eval_list)
+    # pd.DataFrame.plot(df)
+    # print("Testing model")
+    news_entries = daily_report.daily_report()
+    #  Load saved trained model
+    loaded_model = spacy.load("model_artifacts")
+    for i in range(len(news_entries)):
+        news_headline = news_entries[i][1]
+        pos_or_neg = test_model(news_headline, loaded_model)
+        news_entries[i].append(pos_or_neg)
+    return news_entries

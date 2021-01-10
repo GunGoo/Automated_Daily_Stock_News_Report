@@ -16,8 +16,9 @@ from datetime import date
 
 from lxml import html
 
-news_entries = daily_report.daily_report()
-news_entries.sort(key=lambda x: x[0])
+import nlp_model
+
+news_entries = nlp_model.result()
 
 
 def get_contacts(filename):
@@ -43,7 +44,6 @@ def main():
     # For each contact, send the email:
     for name, email in zip(names, emails):
         msg = MIMEMultipart()  # create a message
-
         html_message = html_template()
 
         # setup the parameters of the message
@@ -71,13 +71,13 @@ def html_template():
         "r",
         encoding="utf-8",
     ).read()
-
+    happy = "\U0001f4c8"
+    sad = "\U0001f4c9"
     middle_part = ""
     for news in news_entries:
-        tk, news_title = news[0], news[1]
-        happy = "\U0001f4c8"
-        sad = "\U0001f631"
-        emoji = """<td id= "emoji_td">""" + happy + "</td>"
+        tk, news_title, neg_or_pos = news[0], news[1], news[2]
+        up_or_down = happy if neg_or_pos == "Positive" else sad
+        emoji = """<td id= "emoji_td">""" + up_or_down + "</td>"
         ticker = """<td id="ticker_id">""" + tk + "</td>"
         ns_content = """<td id="ellipsis"> <p>""" + news_title + "</p> </td>"
         new = "<tr>" + emoji + ticker + ns_content + "</tr>"

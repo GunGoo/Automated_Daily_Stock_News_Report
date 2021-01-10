@@ -147,3 +147,9 @@
   2.  Removing stop words
   3.  Normalizing words
   4.  Vectorizing text
+
+## 01/10/2021
+- Sentiment Analysis Applied.
+- Prob need financial news specific dataset in the future
+- Figure out automation 
+	- possible techs: aws lambda, ec2 

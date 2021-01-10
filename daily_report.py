@@ -41,7 +41,7 @@ def daily_report():
                 splitted_date = news_date.split(" ")
                 hour, period = splitted_date[1].split(":")[0], splitted_date[2]
                 if period == "PM" and 4 <= int(hour) < 12:
-                    news_entries[news_ticker].append((news_date, news_title))
+                    news_entries[news_ticker].append([news_date, news_title])
 
         except:
             pass
@@ -54,6 +54,7 @@ def daily_report():
 
     # for news in final_news_entries:
     #     print(news)
+    final_news_entries.sort(key=lambda x: x[0])
     return final_news_entries
 
 

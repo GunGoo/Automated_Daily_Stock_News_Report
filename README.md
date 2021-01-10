@@ -1,4 +1,6 @@
-# Automated Daily Stock News Report - v0.1
+# Automated Daily Stock News Report - v1.0
+
+## The above is the example of the report.
 
 ## Click to Subscribe: https://forms.gle/euLMzrSgBj3Enrah7
 
