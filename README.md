@@ -1,4 +1,5 @@
 # Automated Daily Stock News Report - v1.0
+![example_report](https://user-images.githubusercontent.com/31325556/104128580-6b643200-5336-11eb-8507-4a37e3bd639a.png)
 
 ![스크린샷 2021-01-10 오전 11 18 03](https://user-images.githubusercontent.com/31325556/104128551-2e983b00-5336-11eb-8475-96e313fce6a6.png)
 
@@ -23,7 +24,7 @@
 
 ## Features Added
 
-- daily news report without sentiment analysis
+- daily news report with analysis
 
 ## Features should be Added
 
