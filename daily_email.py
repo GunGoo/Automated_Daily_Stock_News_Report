@@ -33,7 +33,7 @@ def get_contacts(filename):
 
 
 def main():
-    names, emails = get_contacts("./database/test_contact.txt")  # read contacts
+    names, emails = get_contacts("./database/contacts.txt")  # read contacts
     today = date.today().strftime("%b-%d-%Y")
 
     # set up the SMTP server
