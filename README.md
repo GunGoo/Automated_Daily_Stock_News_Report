@@ -5,8 +5,8 @@
 
 ## Click to Subscribe: https://forms.gle/euLMzrSgBj3Enrah7
 
-- This intuitive daily morning service is to provide users to have quick insights on news published after the yesterday market close and before today market open.
-- These news are highly likely to have either positive or negative influence on the today's market trend.
+- This intuitive daily morning service is to provide users to have quick insights on news published after yesterday's market close and before today's market open.
+- These contents are highly likely to have either a positive or negative influence on today's market trend.
 - The daily reports will be sent out to subscribers every morning at 8:45AM EST.
 
 ## Possible Feature Ideas
